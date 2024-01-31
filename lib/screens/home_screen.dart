@@ -62,6 +62,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       actions: [
                         TextButton(
                           onPressed: () {
+                            if (_nom.isEmpty || _nom == "") {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('The field cannot be empty...'),
+                                ),
+                              );
+                              return;
+                            }
                             setState(() {
                               List<String> historial =
                                   Preferences.llistaTasques;

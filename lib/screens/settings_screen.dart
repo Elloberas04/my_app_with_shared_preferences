@@ -27,34 +27,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('Configuració',
+              const Text('Settings',
                   style: TextStyle(fontSize: 45, fontWeight: FontWeight.w300)),
               const Divider(),
               SwitchListTile(
-                  value: Preferences.isDarkMode,
-                  title: const Text('Dark Mode'),
-                  onChanged: (value) {
-                    Preferences.isDarkMode = value;
-                    final themeProvider =
-                        Provider.of<ThemeProvider>(context, listen: false);
-                    value
-                        ? themeProvider.setDarkMode()
-                        : themeProvider.setLightMode();
-                    setState(() {});
-                  }),
-              const Divider(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: TextFormField(
-                  initialValue: Preferences.nom,
-                  onChanged: (value) {
-                    Preferences.nom = value;
-                    setState(() {});
-                  },
-                  decoration: const InputDecoration(
-                      labelText: 'Nom', helperText: 'Nom de l\'usuari'),
-                ),
-              )
+                value: Preferences.isDarkMode,
+                title: const Text('Dark Mode'),
+                onChanged: (value) {
+                  Preferences.isDarkMode = value;
+                  final themeProvider =
+                      Provider.of<ThemeProvider>(context, listen: false);
+                  value
+                      ? themeProvider.setDarkMode()
+                      : themeProvider.setLightMode();
+                  setState(() {});
+                },
+              ),
             ],
           ),
         ),

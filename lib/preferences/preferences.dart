@@ -3,21 +3,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 class Preferences {
   static late SharedPreferences _prefs;
 
-  static String _nom = 'Esteve';
   static bool _isDarkMode = false;
   static List<String> _llistaTasques = [];
 
   static Future init() async {
     _prefs = await SharedPreferences.getInstance();
-  }
-
-  static String get nom {
-    return _prefs.getString('nom') ?? _nom;
-  }
-
-  static set nom(String value) {
-    _nom = value;
-    _prefs.setString('nom', value);
   }
 
   static bool get isDarkMode {
